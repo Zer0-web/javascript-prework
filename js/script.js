@@ -35,34 +35,22 @@ let playerMove = getMoveName(playerInput);
  function displayResult(computerMove, playerMove){
   printMessage('Zagrałem ' + computerMove + ', a Ty ' + playerMove);
 
-  if(computerMove == 'kamień' && playerMove == 'papier'){
-    printMessage('Ty wygrywasz!');
-  } 
-  else if(computerMove == 'papier' && playerMove == 'nożyce'){
-    printMessage('Ty wygrywasz!');
+  if (
+    (computerMove == "kamień" && playerMove == "papier") ||
+    (computerMove == "papier" && playerMove == "nożyce") ||
+    (computerMove == "nożyce" && playerMove == "kamień")
+  ) {
+    printMessage("Ty wygrywasz!");
+  } else if (
+    (computerMove == "kamień" && playerMove == "nożyce") ||
+    (computerMove == "papier" && playerMove == "kamień") ||
+    (computerMove == "nożyce" && playerMove == "papier")
+  ) {
+    printMessage("Tym razem ja wygrałem :)");
+  } else {
+    printMessage("Mamy Remis!");
   }
-  else if(computerMove == 'nożyce' && playerMove == 'kamien'){
-    printMessage('Ty Wygrywasz!');
-  } 
-  else if(computerMove =='kamień' && playerMove == 'nożyce'){
-    printMessage('Tym razem ja wygrałem :)')
-  }
-  else if(computerMove == 'papier' && playerMove == 'kamień'){
-    printMessage('Tym razem ja wygrałem :)')
-  }
-  else if(computerMove == 'nożyce' && playerMove == 'papier'){
-    printMessage('Tym razem ja wygrałem :)')
-  }
-  else if(computerMove =='kamień' && playerMove == 'kamień'){
-    printMessage('Mamy Remis!')
-  }
-  else if(computerMove == 'papier' && playerMove == 'papier'){
-    printMessage('Mamy Remis!')
-  }
-  else if(computerMove == 'nożyce' && playerMove == 'nożyce'){
-    printMessage('Mamy Remis!')
-  }
- }
+}
 console.log('moves:', computerMove, playerMove);
 
 displayResult(computerMove, playerMove);
